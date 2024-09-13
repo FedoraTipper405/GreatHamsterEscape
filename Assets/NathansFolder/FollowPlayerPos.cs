@@ -21,6 +21,6 @@ public class FollowPlayerPos : MonoBehaviour
     void Update()
     {
         cameraObject.transform.position = new Vector3(playerObject.transform.position.x,playerObject.transform.position.y, -baseScreenSize);
-        cameraObject.GetComponent<Camera>().orthographicSize = (playerObject.transform.position.y - playerObjectGroundCheck.lastGroundedHeight) * 1.25f+ baseScreenSize;
+        cameraObject.GetComponent<Camera>().orthographicSize = (playerObject.transform.position.y - playerObjectGroundCheck.lastGroundedHeight) + baseScreenSize;
     }
 }
