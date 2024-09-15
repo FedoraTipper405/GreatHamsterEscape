@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GravityControl : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GravityControl : MonoBehaviour
     float buttonDownAcceleration;
     [SerializeField]
     float buttonUpAcceleration;
+    public UnityEvent PlaySound;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class GravityControl : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             DownAcceleration();
+            PlaySound.Invoke();
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

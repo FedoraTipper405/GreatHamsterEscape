@@ -31,9 +31,9 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage()
     {
-        health -= amount;
+        health--;
         Debug.Log(health);
         if (health < 0)
         {

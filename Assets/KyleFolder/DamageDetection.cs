@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageDetection : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D rb;
-    [SerializeField]
-    HealthManager healthManager;
     float speed;
+    public UnityEvent TakeDamage;
     void Start()
     {
         
@@ -21,7 +21,7 @@ public class DamageDetection : MonoBehaviour
         {
             if (rb.velocity.x <= speed * 0.75f)
             {
-                healthManager.TakeDamage(1);
+                TakeDamage.Invoke();
             }
         }
         speed = rb.velocity.x;
