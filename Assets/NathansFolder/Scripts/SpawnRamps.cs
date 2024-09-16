@@ -1,22 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SpawnRamps : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> downRamps = new List<GameObject>();
-    [SerializeField]
-    List<GameObject> upRamps = new List<GameObject>();
-    [SerializeField]
-    GameObject firstPoint;
-    GameObject pointToSpawnAt;
-    bool instDownRamp = true;
+    List<GameObject> hillPrefabs = new List<GameObject>();
     int trackPerGeneration = 500;
     // Start is called before the first frame update
     void Start()
     {
-        pointToSpawnAt = firstPoint;
         AddTrack();
     }
 
@@ -29,19 +24,10 @@ public class SpawnRamps : MonoBehaviour
     {
         for(int i = 0; i < trackPerGeneration; i++)
         {
-            int randomIndex = Random.Range(0,downRamps.Count);
-            if (instDownRamp)
-            {
-              GameObject lastRamp = Instantiate(upRamps[randomIndex], pointToSpawnAt.transform.position, Quaternion.identity);
-                pointToSpawnAt = lastRamp.transform.GetChild(0).transform.GetChild(0).gameObject;
-                instDownRamp = !instDownRamp;
-            }
-            else
-            {
-                GameObject lastRamp = Instantiate(downRamps[randomIndex],pointToSpawnAt.transform.position,Quaternion.identity);
-                pointToSpawnAt = lastRamp.transform.GetChild(0).transform.GetChild(0).gameObject;
-                instDownRamp = !instDownRamp;
-            }
+            int randomIndex = Random.Range(0,hillPrefabs.Count);
+
+              GameObject lastRamp = Instantiate(hillPrefabs[randomIndex], new Vector2(i*50,-10), Quaternion.identity);
+
         }
     }
 }
