@@ -13,8 +13,14 @@ public class DamageDetection : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Hand")
+        {
+            Debug.Log("Hit");
+        }
+    }
 
-    
     void Update()
     {
         if (speed > 15)

@@ -5,29 +5,6 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
-    RecentlyUsedSceneGuid-0:
-      value: 515250075c0c595e5f5a5e71122159444e4e4a2f7a7d7f602f284d66b4b76661
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 5b520d0503545b0d0c0c0a2715770748154f4d2c7d7d7e627a7d4a35b4e1646a
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5a5500515c0d51095c0f0e2440775c4442151c727f7922677c701c35e6b46360
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-<<<<<<< HEAD
-<<<<<<< HEAD
-      value: 015257515d570c5f095a5d2713765944471649722d797e367e701c37b0b7363d
-=======
-      value: 0601065f52055a0e0b59582312750744454e412c297a27312c7f4f62b5b8353b
->>>>>>> EnzoBranch2
-=======
-      value: 5352510555045b0d0956092740700e4441154d2e7b2c74697c2a1b36b2e56c6a
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 0207005f5d0350025a5b5d7715720d4440154872282e243678781c6ab5b86c6c
->>>>>>> origin/DustinBranch
-      flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
