@@ -16,5 +16,5 @@ MonoBehaviour:
   regularSpeed: 0
   mass: 5
   drag: 0
-  damageTolerance: 0.8
+  damageTolerance: 0.6
   minDamageSpeed: 15

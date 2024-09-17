@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GroundCheck : MonoBehaviour
 {
     public float lastGroundedHeight;
+    public UnityEvent DeathByWire;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.layer == 10)
         {
             Debug.Log("In WIres");
+            DeathByWire.Invoke();
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }

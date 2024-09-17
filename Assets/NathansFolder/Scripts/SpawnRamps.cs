@@ -29,9 +29,7 @@ public class SpawnRamps : MonoBehaviour
     {
         if (playerObj.transform.position.x > trackCount * 50 - trackPieceLength*tracksAwayFromGeneration && waitToGenerate == false)
         {
-            Debug.Log("Player x" + playerObj.transform.position.x + "TrackPoint " + (trackCount / 2) * 50);
                 ReUseTrack();
-    
         }
         if (hillsToUse.Count > 0)
         {

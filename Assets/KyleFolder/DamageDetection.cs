@@ -9,6 +9,7 @@ public class DamageDetection : MonoBehaviour
     Rigidbody2D rb;
     float speed;
     public UnityEvent TakeDamage;
+    public UnityEvent _HamsterDeath;
     [SerializeField]
     SOStats playerStats;
     float damageTolerance;
@@ -22,7 +23,7 @@ public class DamageDetection : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hand")
         {
-            Debug.Log("Hit");
+            _HamsterDeath.Invoke();
         }
     }
 

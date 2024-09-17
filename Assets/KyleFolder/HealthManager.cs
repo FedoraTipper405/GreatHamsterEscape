@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
@@ -10,7 +11,9 @@ public class HealthManager : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptryHeart;
-
+    public UnityEvent NoMoreHealth;
+    [SerializeField]
+    GameObject playerObj;
     void Start()
     {
         health = maxHealth;
@@ -35,8 +38,10 @@ public class HealthManager : MonoBehaviour
     {
         health--;
         Debug.Log(health);
-        if (health < 0)
+        if (health <= 0)
         {
+            playerObj.transform.GetChild(1).gameObject.SetActive(true);
+            NoMoreHealth.Invoke();
             Debug.Log("Death");
         }
     }
