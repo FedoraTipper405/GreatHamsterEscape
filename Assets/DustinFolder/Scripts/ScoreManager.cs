@@ -8,7 +8,10 @@ public class ScoreManager : MonoBehaviour
 {
     public int score = 0; // Initial score
     public TextMeshProUGUI scoreText; // Text Mesh Pro element for displaying score
-
+    [SerializeField]
+    TextMeshProUGUI distanceText;
+    float highestDistance;
+    float playerStartX;
     // Method to add points
     public void AddPoints(int points)
     {
@@ -32,7 +35,17 @@ public class ScoreManager : MonoBehaviour
     // Start method to initialize the text
     private void Start()
     {
+        playerStartX = gameObject.transform.position.x;
+        highestDistance = playerStartX;
         // Initialize the score text at the start of the game
         UpdateScoreText();
+    }
+    private void Update()
+    {
+        if(highestDistance < gameObject.transform.position.x)
+        {
+            distanceText.text = "Distance: " + ((int)((highestDistance - playerStartX )/ 10));
+            highestDistance = gameObject.transform.position.x;
+        }
     }
 }
