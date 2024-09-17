@@ -4998,6 +4998,9 @@ MonoBehaviour:
   - {fileID: 7141438920033874875, guid: 0c845b98769647e4aadc06a38ccc3404, type: 3}
   - {fileID: 7141438920033874875, guid: 0c845b98769647e4aadc06a38ccc3404, type: 3}
   - {fileID: 7141438920033874875, guid: 0c845b98769647e4aadc06a38ccc3404, type: 3}
+  playerObj: {fileID: 165622672}
+  trackCount: 0
+  hillsToUse: []
 --- !u!1 &165622672
 GameObject:
   m_ObjectHideFlags: 0
@@ -5096,12 +5099,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbHamster: {fileID: 165622674}
-  verticalVelocity: -10
-  buttonDownAcceleration: 500
-  buttonUpAcceleration: 0
   PlaySound:
     m_PersistentCalls:
       m_Calls: []
+  playerStats: {fileID: 11400000, guid: d7122e25ccbed9548a23e29457295ec2, type: 2}
 --- !u!114 &165622676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5211,6 +5212,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerStats: {fileID: 11400000, guid: d7122e25ccbed9548a23e29457295ec2, type: 2}
 --- !u!114 &165622680
 MonoBehaviour:
   m_ObjectHideFlags: 0

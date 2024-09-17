@@ -7,9 +7,11 @@ public class SOStats : ScriptableObject
 {
     [SerializeField]
     public float accelerationSpeed = 500;
+    public float regularSpeed = -10;
+    public float mass;
+    public float drag;
     public float damageTolerance = 0.8f;
     public float minDamageSpeed = 15;
-    public float highScore = 0;
     // Start is called before the first frame update
     void Start()
     {

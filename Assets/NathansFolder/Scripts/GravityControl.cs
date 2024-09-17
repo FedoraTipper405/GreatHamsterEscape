@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,28 +8,43 @@ public class GravityControl : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D rbHamster;
-    [SerializeField]
-    float verticalVelocity = -10;
-    [SerializeField]
+    float verticalVelocity;
     float buttonDownAcceleration;
-    [SerializeField]
     float buttonUpAcceleration;
     public UnityEvent PlaySound;
+    bool downPressed;
+    [SerializeField]
+    SOStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
-        
+        buttonDownAcceleration = playerStats.accelerationSpeed;
+        buttonUpAcceleration = playerStats.regularSpeed;
+        rbHamster.mass = playerStats.mass;
+        rbHamster.drag = playerStats.drag;
+        rbHamster.angularDrag = playerStats.drag;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
+        {
+            downPressed = true;
+        }
+        else
+        {
+            downPressed = false;
+        }
+    }
+   
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if(downPressed)
         {
             DownAcceleration();
             PlaySound.Invoke();
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        else
         {
             RegularAcceleration();
         }
