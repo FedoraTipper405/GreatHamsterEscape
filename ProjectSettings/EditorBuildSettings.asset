@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NathansFolder/Scenes/DeathByDamage.unity
     guid: 542d3d09747d5b145b0c2a28c96dd46c
+  - enabled: 1
+    path: Assets/Deepanshusfolder/MainMenu.unity
+    guid: 662a76f20d96d1f458b1eff56380bee4
+  - enabled: 1
+    path: Assets/Deepanshusfolder/SampleScene12.unity
+    guid: eb256f0b792153f4f94e5dfd60389896
   m_configObjects: {}
