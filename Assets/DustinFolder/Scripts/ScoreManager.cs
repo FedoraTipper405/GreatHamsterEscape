@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI distanceText;
     float highestDistance;
+    public int distanceInMeters;
     float playerStartX;
     // Method to add points
     public void AddPoints(int points)
@@ -42,8 +43,10 @@ public class ScoreManager : MonoBehaviour
     }
     private void Update()
     {
+        //used for furthest distance score
         if(highestDistance < gameObject.transform.position.x)
         {
+            distanceInMeters = ((int)((highestDistance - playerStartX) / 10));
             distanceText.text = "Distance: " + ((int)((highestDistance - playerStartX )/ 10));
             highestDistance = gameObject.transform.position.x;
         }

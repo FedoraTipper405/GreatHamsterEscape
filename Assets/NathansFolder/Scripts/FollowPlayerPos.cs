@@ -20,7 +20,9 @@ public class FollowPlayerPos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //follows player
         cameraObject.transform.position = new Vector3(playerObject.transform.position.x,playerObject.transform.position.y, -baseScreenSize);
+        //changes size according to height. Ensures the track is always in frame below
         cameraObject.GetComponent<Camera>().orthographicSize = (playerObject.transform.position.y - playerObjectGroundCheck.lastGroundedHeight) + baseScreenSize;
     }
 }

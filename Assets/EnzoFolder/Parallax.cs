@@ -8,6 +8,8 @@ public class Parallax : MonoBehaviour
     public float parallaxFactor = 0.5f;
     public Rigidbody2D rigidbody2D;
     private Vector3 lastCameraPosition;
+    [SerializeField]
+    float offsetForFix;
     private void Awake()
     {
         camera = Camera.main;
@@ -37,7 +39,7 @@ public class Parallax : MonoBehaviour
             float offsetX = rigidbody2D.velocity.x * parallaxFactor * Time.deltaTime;
         meshRenderer.material.mainTextureOffset += new Vector2(offsetX,0);
 
-            transform.position = new Vector3(transform.position.x + offsetX, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + offsetX + offsetForFix, transform.position.y, transform.position.z);
 
            // lastCameraPosition = camera.position;
         }

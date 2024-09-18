@@ -21,6 +21,7 @@ public class HealthManager : MonoBehaviour
 
     private void Update()
     {
+        //changes health sprite from full to empty depending on amount of health
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)
@@ -33,13 +34,16 @@ public class HealthManager : MonoBehaviour
             }
         }
     }
-
+    //recieves from damage detection
     public void TakeDamage()
     {
+        //decrease health
         health--;
         Debug.Log(health);
+        //than if health is too low die and inform player death
         if (health <= 0)
         {
+            //turns on blood particles
             playerObj.transform.GetChild(1).gameObject.SetActive(true);
             NoMoreHealth.Invoke();
             Debug.Log("Death");

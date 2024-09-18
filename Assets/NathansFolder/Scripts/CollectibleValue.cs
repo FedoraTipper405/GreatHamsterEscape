@@ -18,9 +18,11 @@ public class CollectibleValue : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //deletes floating text after certain amount of time alive
         timeAlive += Time.deltaTime;
         if(timeOnScreen > timeAlive)
         {
+            //raises the text for visual effect
             gameObject.transform.Translate(0,riseSpeed,0);
         }
         else

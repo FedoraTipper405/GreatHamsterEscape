@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +19,7 @@ public class GravityControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //sets from SOStats
         buttonDownAcceleration = playerStats.accelerationSpeed;
         buttonUpAcceleration = playerStats.regularSpeed;
         rbHamster.mass = playerStats.mass;
@@ -49,6 +51,7 @@ public class GravityControl : MonoBehaviour
         }
         rbHamster.AddForce(new Vector2(0,verticalVelocity));
     }
+    //changes velocity added vertically according to button state
     void DownAcceleration()
     {
         verticalVelocity = -buttonDownAcceleration;

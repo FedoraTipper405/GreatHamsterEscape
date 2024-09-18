@@ -18,15 +18,19 @@ public class GroundCheck : MonoBehaviour
     {
         
     }
+    //detects collision with the wire pit
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 10)
         {
             Debug.Log("In WIres");
+            //calls to player death
             DeathByWire.Invoke();
+            //enables the smokey death effect
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
+    //checks if player is within the ground "area". sets last grounded height to assist the camera zoom
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 3) { }
