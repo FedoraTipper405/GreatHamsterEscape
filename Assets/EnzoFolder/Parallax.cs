@@ -4,35 +4,42 @@ public class Parallax : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
     //public float animationSpeed = 1f;
-    public Transform cameraTransform;
+    public Camera camera;
     public float parallaxFactor = 0.5f;
     public Rigidbody2D rigidbody2D;
     private Vector3 lastCameraPosition;
     private void Awake()
     {
+        camera = Camera.main;
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Start()
     {
-        if(cameraTransform != null)
+        if(camera != null)
         {
-            lastCameraPosition = cameraTransform.position;
+            
         }
     }
 
     private void Update()
     {
-        //meshRenderer.material.mainTextureOffset += new Vector2(animationSpeed * Time.deltaTime, 0);
-        if (cameraTransform != null && rigidbody2D != null)
+
+
+        if (camera != null && rigidbody2D != null)
         {
-            float deltaX =  cameraTransform.position.x - lastCameraPosition.x;
+            Vector3 camPos = camera.transform.position;
+            float x = camPos.x;
+            Vector3 newPos = new Vector3(camPos.x, transform.position.y, transform.position.z);
+
+            transform.position = newPos;
 
             float offsetX = rigidbody2D.velocity.x * parallaxFactor * Time.deltaTime;
+        meshRenderer.material.mainTextureOffset += new Vector2(offsetX,0);
 
             transform.position = new Vector3(transform.position.x + offsetX, transform.position.y, transform.position.z);
 
-            lastCameraPosition = cameraTransform.position;
+           // lastCameraPosition = camera.position;
         }
     }
 }
