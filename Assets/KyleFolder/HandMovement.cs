@@ -17,7 +17,7 @@ public class HandMovement : MonoBehaviour
     void Start()
     {
         transform.position = player.position + offset;
-        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void FixedUpdate()
@@ -42,16 +42,16 @@ public class HandMovement : MonoBehaviour
             _hasPlayed = true;
             ResetHand();
 
-            if (GetComponent<SpriteRenderer>().enabled)
+            if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled)
             {
-                GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             }
         }
         else
         {
-            if (GetComponent<SpriteRenderer>().enabled == false)
+            if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled == false)
             {
-                GetComponent<SpriteRenderer>().enabled = true;
+                gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             }
             MoveHand();
             _hasPlayed = false;

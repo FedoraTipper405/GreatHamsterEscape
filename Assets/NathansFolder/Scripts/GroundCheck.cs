@@ -41,7 +41,10 @@ public class GroundCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        lastGroundedHeight = this.gameObject.transform.position.y;
+        if (collision.gameObject.layer == 3) { }
+        {
+            lastGroundedHeight = this.gameObject.transform.position.y;
+        }
     }
   
 }

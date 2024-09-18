@@ -153,7 +153,7 @@ public class MainMenuNavigationScript : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("NathanScene");
     }
     public void Quit()
     {
