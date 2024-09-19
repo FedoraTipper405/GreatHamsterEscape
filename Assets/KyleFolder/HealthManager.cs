@@ -8,15 +8,21 @@ public class HealthManager : MonoBehaviour
 {
     public int health;
     public int maxHealth = 3;
+    public int lastHealth;
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptryHeart;
     public UnityEvent NoMoreHealth;
     [SerializeField]
     GameObject playerObj;
+    [SerializeField]
+    GameObject[] healthStates = new GameObject[4];
+    [SerializeField]
+    GameObject hamsterSprite;
     void Start()
     {
         health = maxHealth;
+        lastHealth = health;
     }
 
     private void Update()
@@ -33,6 +39,41 @@ public class HealthManager : MonoBehaviour
                 hearts[i].sprite = emptryHeart;
             }
         }
+        if (lastHealth != health)
+        {
+            if (health == 3)
+            {
+                healthStates[0].gameObject.SetActive(true);
+                healthStates[1].gameObject.SetActive(false);
+                healthStates[2].gameObject.SetActive(false);
+                healthStates[3].gameObject.SetActive(false);
+            }
+            if (health == 2)
+            {
+                healthStates[0].gameObject.SetActive(false);
+                healthStates[1].gameObject.SetActive(true);
+                healthStates[2].gameObject.SetActive(false);
+                healthStates[3].gameObject.SetActive(false);
+            }
+            if (health == 1)
+            {
+                healthStates[0].gameObject.SetActive(false);
+                healthStates[1].gameObject.SetActive(false);
+                healthStates[2].gameObject.SetActive(true);
+                healthStates[3].gameObject.SetActive(false);
+            }
+            if (health == 0)
+            {
+                healthStates[0].gameObject.SetActive(false);
+                healthStates[1].gameObject.SetActive(false);
+                healthStates[2].gameObject.SetActive(false);
+                healthStates[3].gameObject.SetActive(true);
+                hamsterSprite.SetActive(false);
+            }
+            lastHealth = health;
+        }
+        
+
     }
     //recieves from damage detection
     public void TakeDamage()
