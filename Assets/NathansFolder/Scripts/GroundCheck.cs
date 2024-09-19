@@ -7,6 +7,9 @@ public class GroundCheck : MonoBehaviour
 {
     public float lastGroundedHeight;
     public UnityEvent DeathByWire;
+    public GameObject HamsterSprite;
+    public GameObject[] Ball = new GameObject[4];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,13 @@ public class GroundCheck : MonoBehaviour
         if (collision.gameObject.layer == 10)
         {
             Debug.Log("In WIres");
+
+            HamsterSprite.SetActive(false);
+            Ball[0].SetActive(false);
+            Ball[1].SetActive(false);
+            Ball[2].SetActive(false);
+            Ball[3].SetActive(true);
+            
             //calls to player death
             DeathByWire.Invoke();
             //enables the smokey death effect
