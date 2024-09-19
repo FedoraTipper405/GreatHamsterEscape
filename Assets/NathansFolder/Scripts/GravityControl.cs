@@ -28,36 +28,43 @@ public class GravityControl : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            downPressed = true;
-        }
-        else
-        {
-            downPressed = false;
-        }
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    downPressed = true;
+        //}
+        //else
+        //{
+        //    downPressed = false;
+        //}
     }
    
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(downPressed)
-        {
-            DownAcceleration();
-        }
-        else
-        {
-            RegularAcceleration();
-        }
+        //if(downPressed)
+        //{
+        //    DownAcceleration();
+        //}
+        //else
+        //{
+        //    RegularAcceleration();
+        //}
         rbHamster.AddForce(new Vector2(0,verticalVelocity));
     }
     //changes velocity added vertically according to button state
-    void DownAcceleration()
+    public void DownAcceleration()
     {
+        Debug.Log("Down");
         verticalVelocity = -buttonDownAcceleration;
     }
-    void RegularAcceleration()
+    public void RegularAcceleration()
     {
+        Debug.Log("Up");
         verticalVelocity = -buttonUpAcceleration;
+    }
+    //Trust the process Sean
+    public void MT()
+    {
+
     }
 }
