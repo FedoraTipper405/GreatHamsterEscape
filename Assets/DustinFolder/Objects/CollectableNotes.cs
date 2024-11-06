@@ -1,7 +1,7 @@
 /* Point collection notes, regarding the values for each, so I don't forget
  * 
  * ===Positive Foods:===
- * 1. Pellts = 1 point
+ * 1. Pellets = 1 point
  * 2. Carrots = 2 points
  * 3. Broccoli = 3 points
  * 4. Apples (no seeds) = 4 points
